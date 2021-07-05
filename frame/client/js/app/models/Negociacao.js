@@ -1,8 +1,8 @@
 class Negociacao {
     
     constructor(data, quantidade, valor) {
-
-        this._data = data;
+        // garantindo a blindagem da classe 
+        this._data = new Date(data.getTime()); // protegendo a data de ser mudada por de fora da classe
         this._quantidade = quantidade;
         this._valor = valor;
         Object.freeze(this); // congelando um estancia, assim não é possivel fazer alterações fora da class nos objetos
@@ -12,7 +12,7 @@ class Negociacao {
         return this._quantidade * this._valor;
     }
     get Data() {
-       return this._data;
+       return new  Date(this._data.getTime()); // programação defensiva
     }
     get Quantidade() {
        return this._quantidade ;

@@ -61,15 +61,15 @@
     <script src="js/app/models/Negociacao.js"></script>
     <script>
 
-        var n1 = new Negociacao(new Date(), 10, 250);
-        
-        console.log(n1.data); 
+        var hoje =  new Date(); // criando um novo objeto assim a classe fica segura e imutável 
 
-        var amanha = new Date();
-        amanha.setDate(6);
-        n1.data = amanha;
+        var n1 = new Negociacao(hoje, 5, 700);
         
-        console.log(n1.data);
+        console.log(n1.Data); 
+
+        hoje.setDate(6); // não é possivel mudar esse parametro devido a classe esta protegida
+        
+        console.log(n1.Data);
     </script>
 </body>
 </html>
