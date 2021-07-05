@@ -5,7 +5,7 @@ class Negociacao {
         this._data = new Date(data.getTime()); // protegendo a data de ser mudada por de fora da classe
         this._quantidade = quantidade;
         this._valor = valor;
-        Object.freeze(this); // congelando um estancia, assim não é possivel fazer alterações fora da class nos objetos
+        Object.freeze(this); // congelando um estancia, assim não é possivel fazer alterações fora da class nos objetos, porem é razo !!
     }
    // Métodos acessores, assim deixa estes metodos privados e não podem ser acessado por fora da classe
     get Volume() { 
