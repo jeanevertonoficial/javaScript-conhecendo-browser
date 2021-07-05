@@ -62,12 +62,14 @@
     <script>
 
         var n1 = new Negociacao(new Date(), 10, 250);
-
-        console.log(n1.Data);
-        console.log(n1.Quantidade);
-        console.log(n1.Valor);
-        console.log(n1.Volume);
         
+        console.log(n1.data); 
+
+        var amanha = new Date();
+        amanha.setDate(6);
+        n1.data = amanha;
+        
+        console.log(n1.data);
     </script>
 </body>
 </html>
