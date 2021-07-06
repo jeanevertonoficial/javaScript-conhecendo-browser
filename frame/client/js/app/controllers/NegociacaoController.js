@@ -15,8 +15,17 @@ class NegociacaoController {
   adiciona(event) {
     event.preventDefault();
 
-   // let data = new Date(this._inputData.value.split('-')); // split serve como um separador
-    let data = new Date(this._inputData.value.replace(/-/g, ',')); // replece serve como um separador e troca de caractere 
+    let data = new Date(...
+      this._inputData.value
+        .split('-') // lendo o array da data e substituindo os separadores por -
+        .map(function(item, indice) { // map uma função para criar um array no data, item é ano mes e dia cada um vira um item, o indice que é passado no parametro é a posição 
+          if(indice == 1) { // posição do mes que fica no meio por isto 1, a contagem é feita de 0 em diante
+            return item - 1; // retorna o mes com 1 a menos para padronizar 
+          }
+          return item;
+        })
+        
+      );
     console.log(data);
   }
 }
