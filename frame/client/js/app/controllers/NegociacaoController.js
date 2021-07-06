@@ -9,23 +9,20 @@ class NegociacaoController {
     this._inputValor = $("#valor"); // percorrendo o dom para pegar as informações dos campos do formulário
   }
 
-  adiciona(event) {
-    event.preventDefault();
+ adiciona(event) {
 
-    let data = new Date(
-      ...this._inputData.value
-        .split("-") // lendo o array da data e substituindo os separadores por -
-        .map((item, indice) => item - (indice % 2))
-    );
+        event.preventDefault();
 
-    let negociacao = new Negociacao(
-      data,
-      this._inputQuantidade.value,
-      this._inputValor.value
-    );
-      // FORMATANDO A DATA NO FORMATO 11/11/1111
-    let diaMesAno = negociacao.Data.getDate() + "/" + (negociacao.Data.getMonth() + 1) + "/" + negociacao.Data.getFullYear();
+        let helper = new DateHelper();
+        let negociacao = new Negociacao(
+                helper.textoParaData(this._inputData.value),
+                this._inputQuantidade.value,
+                this._inputValor.value
+            );
 
-    console.log(diaMesAno);
-  }
+
+        console.log(negociacao);
+
+        console.log(helper.dataParaTexto(negociacao.Data));
+    }
 }
