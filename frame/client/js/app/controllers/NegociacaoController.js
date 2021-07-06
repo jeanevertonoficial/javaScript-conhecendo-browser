@@ -15,7 +15,7 @@ class NegociacaoController {
     let data = new Date(
       ...this._inputData.value
         .split("-") // lendo o array da data e substituindo os separadores por -
-        .map((item, indice) => item - indice % 2)
+        .map((item, indice) => item - (indice % 2))
     );
 
     let negociacao = new Negociacao(
@@ -23,6 +23,9 @@ class NegociacaoController {
       this._inputQuantidade.value,
       this._inputValor.value
     );
-    console.log(negociacao);
+      // FORMATANDO A DATA NO FORMATO 11/11/1111
+    let diaMesAno = negociacao.Data.getDate() + "/" + (negociacao.Data.getMonth() + 1) + "/" + negociacao.Data.getFullYear();
+
+    console.log(diaMesAno);
   }
 }
